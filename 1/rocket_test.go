@@ -5,13 +5,34 @@ import (
 )
 
 func TestCalculateFuel(t *testing.T) {
-	got := CalculateFuel(1969)
-	if got != 654 {
-		t.Errorf("CalculateFuel(1969) = %d; want 654", got)
+	errorMessage := "CalculateFuel(%d) = %d; want %e"
+	testFuel := 1969
+	expectedFuel := 654
+	got := CalculateFuel(testFuel)
+	if got != expectedFuel {
+		t.Errorf(errorMessage, testFuel, got, expectedFuel)
 	}
-	got = CalculateFuel(100756)
-	if got != 33583 {
-		t.Errorf("CalculateFuel(100756) = %d; want 33583", got)
+	testFuel = 100756
+	expectedFuel = 33583
+	got = CalculateFuel(testFuel)
+	if got != expectedFuel {
+		t.Errorf(errorMessage, testFuel, got, expectedFuel)
+	}
+}
+
+func TestCalculateFuelForFuel(t *testing.T) {
+	errorMessage := "CalculateFuelForFuel(%d) = %d; want %d"
+	testFuel := 1969
+	expectedFuel := 966
+	got := CalculateFuelForFuel(testFuel)
+	if got != expectedFuel {
+		t.Errorf(errorMessage, testFuel, got, expectedFuel)
 	}
 
+	testFuel = 100756
+	expectedFuel = 50346
+	got = CalculateFuelForFuel(testFuel)
+	if got != expectedFuel {
+		t.Errorf(errorMessage, testFuel, got, expectedFuel)
+	}
 }
